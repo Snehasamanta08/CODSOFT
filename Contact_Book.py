@@ -11,19 +11,16 @@ class ContactBook(QWidget):
         self.setWindowTitle("Contact Book")
         layout = QVBoxLayout()
 
-        # Form fields
         self.name_input = QLineEdit(self); layout.addWidget(QLabel('Store Name:')); layout.addWidget(self.name_input)
         self.phone_input = QLineEdit(self); layout.addWidget(QLabel('Phone Number:')); layout.addWidget(self.phone_input)
         self.email_input = QLineEdit(self); layout.addWidget(QLabel('Email:')); layout.addWidget(self.email_input)
         self.address_input = QLineEdit(self); layout.addWidget(QLabel('Address:')); layout.addWidget(self.address_input)
 
-        # Buttons
         self.add_button = QPushButton('Add Contact', self); self.add_button.clicked.connect(self.add_contact)
         self.update_button = QPushButton('Update Contact', self); self.update_button.clicked.connect(self.update_contact)
         self.delete_button = QPushButton('Delete Contact', self); self.delete_button.clicked.connect(self.delete_contact)
         layout.addWidget(self.add_button); layout.addWidget(self.update_button); layout.addWidget(self.delete_button)
 
-        # Contact list
         self.contact_list = QListWidget(self); self.contact_list.itemDoubleClicked.connect(self.view_contact_details)
         layout.addWidget(self.contact_list)
 
